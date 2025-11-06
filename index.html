@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trontris</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ====== TELA INICIAL ====== -->
+  <div id="menu-screen" class="screen active">
+    <div class="menu-container">
+      <img src="https://i.postimg.cc/cLBm3xvf/trontrislogo.png" class="menu-logo glitch" alt="Trontris Logo">
+
+      <div class="menu-buttons">
+        <p>Digite seu nome abaixo:</p>
+        <input type="text" class="btn1" id="nome" required placeholder="Seu nome aqui">
+        <button class="btn" id="play-btn">🎮 JOGAR</button>
+        <button class="btn" id="controls-btn">🕹️ CONTROLES</button>
+        <button class="btn" id="settings-btn">⚙️ CONFIGURAÇÕES</button>
+        <button class="btn" id="ranking-btn">🏆 RANKING</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== TELA DE CONTROLES ====== -->
+  <div id="controls-screen" class="screen">
+    <div class="controls-container">
+      <h1>CONTROLES</h1>
+      <ul>
+        <li>⬅️ <strong>Seta Esquerda</strong> – mover para esquerda</li>
+        <li>➡️ <strong>Seta Direita</strong> – mover para direita</li>
+        <li>⬇️ <strong>Seta Baixo</strong> – descer mais rápido</li>
+        <li>🔄 <strong>Z</strong> – girar peça</li>
+        <li>⏸ <strong>P</strong> – pausar jogo</li>
+        <li>🔁 <strong>R</strong> – reiniciar após “Game Over”</li>
+      </ul>
+      <button class="btn" id="controls-back">⬅ VOLTAR</button>
+    </div>
+  </div>
+
+  <!-- ====== TELA DE RANKING ====== -->
+  <div id="ranking-screen" class="screen">
+    <div class="controls-container">
+      <h1>🏆 RANKING</h1>
+      <ol id="ranking-list"></ol>
+      <button class="btnv" id="ranking-back">⬅ VOLTAR</button>
+    </div>
+  </div>
+
+  <!-- ====== TELA DO JOGO ====== -->
+  <div id="game-screen" class="screen">
+    <div class="container">
+      <div class="coluna1">
+       <img class="logo glitch" src="https://i.postimg.cc/cLBm3xvf/trontrislogo.png" alt="logo" />
+        <div class="painel"><h3>LEVEL</h3><p id="level" class="painel-valor">0</p></div>
+        <div class="painel"><h3>LINES</h3><p id="lines" class="painel-valor">0</p></div>
+        <div class="painel"><h3>SCORE</h3><p id="score" class="painel-valor">000000</p></div>
+        <div class="painel"><h3>TIME</h3><p id="time" class="painel-valor">00:00</p></div>
+      </div>
+
+      <div class="coluna2">
+        <canvas id="game" width="300" height="600" aria-label="Área do jogo"></canvas>
+        <div id="game-over" aria-hidden="true">
+          <h1>GAME OVER</h1>
+          <p>Pressione <strong>R</strong> para reiniciar</p>
+        </div>
+      </div>
+
+      <div class="coluna3">
+        <h3>NEXT BLOCK</h3>
+        <canvas id="next" width="150" height="150" aria-label="Próximo bloco"></canvas>
+        <button class="btn" id="controls-btn-2">🕹️ CONTROLES</button>
+        <button class="btn" id="settings-btn-2">⚙️ CONFIGURAÇÕES</button>
+        <button class="btn" id="exit-btn">SAIR</button>
+        <h4>Pressione P para pausar o jogo.</h4>
+      </div>
+    </div>
+  </div>
+
+   <!-- ===== POPUP DE CONFIGURAÇÕES ===== -->
+  <div id="settings-popup" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="settings-box" role="document">
+      <h2>⚙️ CONFIGURAÇÕES</h2>
+      <div class="config-item">
+        <label>🎵 Música:</label>
+        <button id="toggle-music">🔊 Ligar</button>
+      </div>
+      <div class="config-item">
+        <label for="volume">🔈 Volume:</label>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+      </div>
+      <div class="config-item creditos">
+        <p>
+          🎶 Música por
+          <a href="https://pixabay.com/users/artur_aravidi_music-37133175/" target="_blank" rel="noopener noreferrer">
+            Artur Aravidi
+          </a> do
+          <a href="https://pixabay.com/music/" target="_blank" rel="noopener noreferrer">Pixabay</a>
+        </p>
+      </div>
+      <button class="btn" id="settings-close">Fechar</button>
+
+      <p class="dadosconfig1">Desenvolvido por:
+        <a href="https://github.com/0001143306-web" target="_blank" rel="noopener noreferrer">Bernardo Barroso,</a>
+        <a href="https://github.com/fegaspar0706" target="_blank" rel="noopener noreferrer">Felipe Gaspar,</a>
+        <a href="https://github.com/0001141792-arch" target="_blank" rel="noopener noreferrer">Isaque Amancio,</a>
+        <a href="https://github.com/Sirplehe" target="_blank" rel="noopener noreferrer">Victor Hugo Rodrigues,</a>
+        <a href="https://github.com/0001181015-a11y" target="_blank" rel="noopener noreferrer">Maria Clara Guide,</a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Stefane Beatriz</a>
+        e <a href="https://github.com/" target="_blank" rel="noopener noreferrer">Gabriel Marques</a>
+      </p>
+
+      <p class="dadosconfig1">Link do projeto no GitHub: <a href="https://github.com/0001143306-web/Trontris" target="_blank" rel="noopener noreferrer">Clique aqui!</a></p>
+    </div>
+  </div>
+
+  <audio id="bg-music" loop preload="auto">
+    <source src="audio/dark-synthwave-strange-time-317273.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
